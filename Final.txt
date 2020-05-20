@@ -1,0 +1,10 @@
+from gpiozero import DistanceSensor, LED , PWMLED
+from signal import pause
+
+sensor = DistanceSensor(24, 18, max_distance=1, threshold_distance=0.2)
+led = PWMLED(22,active_high = False)
+
+led.source = sensor
+led.blink(on_time=0, off_time=0, fade_in_time=10, fade_out_time=10)
+
+pause()
